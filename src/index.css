@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+
 * {
   padding: 0;
   margin: 0;
@@ -21,6 +23,15 @@
 
 body {
   background-color: #16213e;
+  color: #ffffff;
+  font-family: "Roboto Mono", monospace;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .side-nav {
@@ -29,7 +40,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 60px;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .divider {
@@ -49,4 +60,12 @@ body {
 
 .side-nav-icon:hover {
   background-color: #e94560;
+}
+
+.search-bar {
+  color: #222c48;
+  background: #222c48 0% 0% no-repeat padding-box;
+  border: 1px solid #2f3953;
+  border-radius: 5px;
+  opacity: 1;
 }

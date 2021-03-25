@@ -1,8 +1,13 @@
 import React from "react";
-import { SideNav } from "../components";
+import { Container } from "react-bootstrap";
+import { Header } from "../components";
 
 const Home = () => {
-  return <SideNav />;
+  return (
+    <Container>
+      <Header page="home" />
+    </Container>
+  );
 };
 
 export default Home;
