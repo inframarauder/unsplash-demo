@@ -1,4 +1,4 @@
 import SideNav from "./SideNav";
 import Header from "./Header";
-
-export { SideNav, Header };
+import ImageCard from "./ImageCard";
+export { SideNav, Header, ImageCard };

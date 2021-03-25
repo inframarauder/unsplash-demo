@@ -5,9 +5,9 @@ import { Home } from "./containers";
 
 const App = () => {
   return (
-    <div className="center-content">
+    <div>
+      <SideNav />
       <Router>
-        <SideNav />
         <Switch>
           <Route path="/" exact component={Home} />
         </Switch>
