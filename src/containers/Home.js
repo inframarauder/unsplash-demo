@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Header, ImageCard } from "../components";
+import { Header, ImageCard, Loader } from "../components";
 import api from "../utils/api";
 
 const Home = () => {
@@ -28,12 +28,15 @@ const Home = () => {
       <Header page="home" />
       <hr className="divider" />
       <Row className="image-area">
-        {!loading &&
+        {loading ? (
+          <Loader />
+        ) : (
           state.map((photo) => (
             <Col sm="4" key={photo.id}>
               <ImageCard url={photo.urls?.regular} />
             </Col>
-          ))}
+          ))
+        )}
       </Row>
     </Container>
   );
