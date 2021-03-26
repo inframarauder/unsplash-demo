@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { SideNav } from "./components";
-import { Home } from "./containers";
+import { Home, Contact } from "./containers";
 
 const App = () => {
   return (
@@ -10,6 +10,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />
+          <Route path="/contact" exact component={Contact} />
         </Switch>
       </Router>
     </div>
