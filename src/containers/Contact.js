@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from "react";
+import axios from "axios";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useDropzone } from "react-dropzone";
 
@@ -36,7 +37,17 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData, uploads);
+    const postData = new FormData();
+    postData.append("email", formData.email);
+    postData.append("query", formData.query);
+    uploads.forEach((upload, i) =>
+      postData.append(`attachment${i + 1}`, upload)
+    );
+
+    axios
+      .post("http://localhost:5000", postData)
+      .then(() => alert("sent"))
+      .catch((err) => console.log(err));
   };
 
   return (
