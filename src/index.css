@@ -65,7 +65,7 @@ body {
 }
 
 .search-bar {
-  color: #222c48;
+  color: #ffffff;
   background: #222c48 0% 0% no-repeat padding-box;
   border: 1px solid #2f3953;
   border-radius: 5px;
@@ -86,4 +86,11 @@ body {
 
 .img-card > img {
   height: 100%;
+}
+
+.clear-btn {
+  background: #222c48;
+  border: none;
+  color: #ffffff;
+  padding: 5px;
 }
