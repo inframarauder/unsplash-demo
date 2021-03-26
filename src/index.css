@@ -77,11 +77,13 @@ body {
 }
 
 .img-card {
+  width: 396px;
   height: 281px;
   border-radius: 5px;
-  background: transparent 0% 0% no-repeat padding-box;
+  background: transparent;
   opacity: 1;
-  padding: 10px;
+  padding: 20px;
+  margin: 10px;
 }
 
 .img-card > img {
@@ -93,4 +95,29 @@ body {
   border: none;
   color: #ffffff;
   padding: 5px;
+}
+
+.slider-area {
+  background: transparent;
+  position: fixed;
+  z-index: 1000;
+  color: #ffffff;
+  width: 80%;
+  top: 80px;
+}
+
+.close-btn {
+  float: right;
+  background: transparent;
+  color: #ffffff;
+  border: none;
+}
+
+.slider {
+  width: 1020px;
+  height: 585px;
+  background: #151515 0% 0% no-repeat padding-box;
+  border: 1px solid #16213e;
+  border-radius: 5px;
+  opacity: 1;
 }

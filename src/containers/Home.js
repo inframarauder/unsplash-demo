@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Container, Row, Col, Form, Button, InputGroup } from "react-bootstrap";
-import { ImageCard, Loader } from "../components";
+import { ImageCard, ImageSlider, Loader } from "../components";
 import api from "../utils/api";
 
 const Home = () => {
@@ -9,6 +9,8 @@ const Home = () => {
   const [searchText, setSearchText] = useState("");
   const [isSearching, setIsSearching] = useState(false);
   const [showClear, setShowClear] = useState(false);
+  const [showSlider, setShowSlider] = useState(false);
+  const [startIndex, setStartIndex] = useState(0);
 
   const listPhotos = useCallback(
     () =>
@@ -70,8 +72,25 @@ const Home = () => {
     }
   };
 
+  const handleShowSlider = (index) => {
+    setShowSlider(true);
+    setStartIndex(index);
+  };
+
   return (
     <Container>
+      {showSlider && (
+        <div className="slider-area">
+          <button
+            className="close-btn my-4"
+            onClick={() => setShowSlider(false)}
+          >
+            <img src="/assets/close-icon.svg" alt="close" />
+          </button>
+          <hr />
+          <ImageSlider startIndex={startIndex} photos={photos} />
+        </div>
+      )}
       <h1 className="text-left">Home</h1>
       <small style={{ color: "#9999A2" }}>Photos for everyone...</small>
       <Form className="my-4" onSubmit={handleSubmit}>
@@ -101,6 +120,7 @@ const Home = () => {
           </Col>
         </Row>
       </Form>
+
       <hr className="divider" />
       {isSearching && <span>Showing results for '{searchText}'</span>}
 
@@ -108,8 +128,8 @@ const Home = () => {
         {loading ? (
           <Loader />
         ) : (
-          photos.map((photo) => (
-            <Col sm="4" key={photo.id}>
+          photos.map((photo, index) => (
+            <Col sm="4" key={photo.id} onClick={() => handleShowSlider(index)}>
               <ImageCard url={photo.urls?.regular} />
             </Col>
           ))
